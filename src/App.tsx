@@ -1,8 +1,14 @@
+import Hero from "./components/Hero";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import Search from "./pages/Search";
 function App() {
   return (
-    <>
-      <h1 className="text-3xl font-bold underline">Hello</h1>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Hero />} />
+        <Route path="/pages/Search" element={<Search />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
