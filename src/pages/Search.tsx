@@ -2,16 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { RiMovie2Line } from "react-icons/ri";
 import { motion } from "framer-motion"; // Import motion
-
-// Define the Movie type
-interface Movie {
-  id: number;
-  title: string;
-  poster_path: string;
-  release_date: string;
-  overview: string;
-  backdrop_path: string | null; // Allow null for movies without a backdrop
-}
+import Movie from "../types/Movie";
 
 export default function MovieSearch() {
   const [query, setQuery] = useState<string>(""); // Add type for query
@@ -39,10 +30,12 @@ export default function MovieSearch() {
     }
   }, [query, apiKey]);
 
+  // Get value from Input
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);
   };
 
+  // When hover image item and you'll see bg image this is for that function.
   const handleMovieBgImage = (backdropPath: string | null) => {
     if (backdropPath) {
       // Debugging: Log the backdrop path
